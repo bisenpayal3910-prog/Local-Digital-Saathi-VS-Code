@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Admin Dashboard — Local Digital Saathi</title><link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+<header class="admin-top"><a class="brand" href="/"><span class="brand-mark">✦</span> Local Digital <b>Saathi</b></a><div class="top-right"><a href="/">View website ↗</a></div></header>
+<main class="dashboard">
+  <section id="loginPanel" class="login-panel"><p class="eyebrow">PRIVATE WORKSPACE</p><h1>Admin login</h1><p class="muted">Sign in to manage enquiries and services.</p>
+    <form id="loginForm"><label for="username">Username</label><input id="username" autocomplete="username" required><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required><button class="btn btn-primary" id="loginButton">Sign in</button><p id="loginMessage" class="message" aria-live="polite"></p></form>
+  </section>
+  <div id="dashboardPanel" hidden>
+    <div class="welcome"><div><p class="eyebrow">WORKSPACE / OVERVIEW</p><h1>Business dashboard</h1><p class="muted">Manage customer enquiries and update the services on your website.</p></div><div class="toolbar"><button class="btn btn-light" id="refreshBtn">↻ Refresh</button><button class="btn btn-danger" id="logoutBtn">Log out</button></div></div>
+    <p id="notice" class="message" aria-live="polite"></p>
+    <section class="stats"><article class="stat"><span>Total enquiries</span><strong id="totalLeads">0</strong><small>All time</small></article><article class="stat"><span>New enquiries</span><strong id="newLeads">0</strong><small>Need follow-up</small></article><article class="stat"><span>Converted customers</span><strong id="wonLeads">0</strong><small>Marked as won</small></article></section>
+    <section class="panel"><div class="panel-head"><div><p class="eyebrow">CUSTOMER PIPELINE</p><h2>Enquiries</h2></div><div class="toolbar"><input id="leadSearch" placeholder="Search name or business…"><select id="statusFilter"><option value="">All statuses</option><option value="new">New</option><option value="contacted">Contacted</option><option value="quoted">Quoted</option><option value="won">Won</option><option value="lost">Lost</option></select></div></div><div id="leadsContainer" class="lead-list">Loading…</div></section>
+    <section class="panel"><div class="panel-head"><div><p class="eyebrow">YOUR OFFER</p><h2>Manage services</h2><p class="muted">Changes update the public service cards.</p></div></div>
+      <form id="serviceForm" class="service-form"><input type="hidden" id="serviceId"><label>Service name<input id="serviceName" required maxlength="100"></label><label>Short label<input id="serviceTagline" maxlength="100"></label><label>Price label<input id="servicePrice" maxlength="80" placeholder="From ₹999"></label><label class="wide">Description<textarea id="serviceDescription" maxlength="500" rows="2"></textarea></label><label>Sort order<input id="serviceOrder" type="number" min="0" max="999" value="10"></label><div class="form-actions"><button class="btn btn-primary" id="serviceSave">Add service</button><button class="btn btn-light" id="serviceCancel" type="button" hidden>Cancel</button></div></form>
+      <div id="servicesContainer" class="service-list"></div>
+    </section>
+  </div>
+  <p class="footnote">Keep your admin password private. Use HTTPS and a persistent session store before deploying publicly.</p>
+</main>
+<script src="/admin.js" defer></script>
+</body></html>
